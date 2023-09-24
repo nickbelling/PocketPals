@@ -1,0 +1,25 @@
+composition = thisLayer.source;
+
+// Work out the timeScale
+timeScale = thisLayer.source.duration / thisComp.duration;
+
+// Get the total number of frames in the underlying composition
+seconds = composition.duration;
+frameRate = 1/composition.frameDuration;
+totalFrames = seconds * frameRate;
+
+// Get the total offset we have to span
+compWidth = composition.width;
+
+// We'll go from 0 to the compWidth over the total number of frames
+multiplier = (compWidth / totalFrames) * timeScale;
+
+// The horizontal offset will be somewhere between the current frame
+// and the length of the composition over time, modulo the compWidth
+// (so that it resets to 0). For example, if the comp is 10 seconds long
+// and the width is 1000, this value will be 0 at 0 secs and 1000 at 10 secs.
+// It will then reset to 0 and be 1000 again at 20 secs.
+horizontalOffset = (timeToFrames() * multiplier);
+
+// Final value
+[horizontalOffset, 100]

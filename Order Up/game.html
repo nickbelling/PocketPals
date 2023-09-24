@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <!--
+        Copyright (C) 2022, Nick Belling for Back Pocket/Lowkii.
+        Feel free to copy and use this code as you see fit.
+        
+        This is the browser source for the game "Order Up" as shown on Back
+        Pocket's "Pocket Pals".
+
+        Start the game by browsing to this game.html file with a "decade"
+        parameter, e.g. "game.html?decade=90"
+        
+        Next to game.html are four directories, "90s", "00s", "10s" and "20s",
+        representing a set of games for each decade. Inside each of those
+        directories is a "games.js" file, which adds a list of games to a global
+        object on this page called "games".
+
+        Each "games.js" file includes an array of games for that decade, with a
+        name and date of release. The "name" is used to load the images - we
+        assume that next to the file defining that object is a file called
+        "[name]logo.png", and another file called "[name]bg.png". For example,
+        the game object for "The Sims" looks like this:
+
+        {
+            "name": "thesims",
+            "date": "2000 - Feb 4"
+        }
+
+        This assumes that next to the games.js file, there is a file called
+        "thesimsbg.png" and "thesimslogo.png".
+
+        Further explanation of how the logic for the game works is in the
+        "interactivity.js" file loaded at the end.
+    -->
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- The card representing the "current game" (the one being guessed) -->
+        <div id="current">
+            <div class="card">
+                <div class="card-inner">
+                    <div id="current-bg" class="card-bg"></div>
+                    <img id="current-logo" />
+                </div>
+            </div>
+        </div>
+
+        <!-- The track where the games will appear after they have been guessed -->
+        <div id="track"></div>
+
+        <script type="text/javascript">
+            // Set up games object
+            var games = {};
+        </script>
+
+        <!-- Load the games into the games object -->
+        <script src="90s/games.js" type="text/javascript"></script>
+        <script src="00s/games.js" type="text/javascript"></script>
+        <script src="10s/games.js" type="text/javascript"></script>
+        <script src="20s/games.js" type="text/javascript"></script>
+
+        <!-- Now load the logic to run the "Order Up" game itself -->
+        <script src="interactivity.js" type="text/javascript"></script>
+    </body>
+</html>

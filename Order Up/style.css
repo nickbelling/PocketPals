@@ -1,0 +1,111 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
+#current {
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#track {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-left: 100px;
+    height: 40%;
+}
+
+.card-wrapper {
+    display: flex;
+    margin-left: -100px;
+    justify-content: center;
+    animation: add 1000ms ease-in-out forwards;
+}
+
+.hidden {
+    animation: hide 1000ms ease-in-out forwards;
+}
+
+@keyframes add {
+    from {
+        transform: scale(0.0001);
+        flex: 0.0001;
+    }
+    to {
+        transform: scale(1);
+        flex: 1;
+    }
+}
+
+@keyframes hide {
+    from {
+        opacity: 100%;
+    }
+    to {
+        opacity: 0%;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    filter: drop-shadow(-5px 5px 5px rgba(50, 50, 50, 50));
+    overflow: hidden;
+}
+
+#track .card {
+    height: 250px;
+    width: 200px;
+}
+
+#current .card {
+    height: 500px;
+    width: 400px;
+}
+
+.card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.card-bg {
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    height: calc(100% + 20px);
+    width: calc(100% + 20px);
+    filter: blur(10px);
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
+
+.card-inner img {
+    margin: auto;
+    max-height: calc(100% - 20px);
+    max-width: calc(100% - 20px);
+}
+
+.date {
+    width: 100%;
+    background-color: dodgerblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-family: 'Bebas Neue';
+    font-weight: bolder;
+    font-size: 30px;
+    color: white;
+    white-space: nowrap;
+}

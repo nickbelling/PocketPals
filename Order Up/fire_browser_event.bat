@@ -1,0 +1,1 @@
+python fire_browser_event.py orderUpNextGame ws://localhost:4455 [websocket password]

@@ -1,0 +1,57 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+}
+
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1920px;
+    margin-left: -50%;
+    font-family: var(--font, sans-serif);
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 4px 4px #00000050;
+    color: var(--color, #fff);
+    animation-name: credits;
+    animation-duration: var(--animation-duration, 150s);
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.heading {
+    margin-top: 75px;
+    margin-bottom: 50px;
+    font-size: 75px;
+    font-weight: 800;
+}
+
+.job {
+    margin-top: 70px;
+    margin-bottom: 10px;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.name {
+    margin-bottom: 10px;
+    font-size: 50px;
+}
+
+.padding {
+    width: 10px;
+    height: 1080px;
+}
+
+@keyframes credits {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(calc(-100% + 1080px));
+    }
+}
